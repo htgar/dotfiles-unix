@@ -5,5 +5,3 @@ case $- in
 esac
 
 eval "$(devbox global shellenv --init-hook)"
-
-eval "$(starship init bash)"
