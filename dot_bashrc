@@ -1,0 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+eval "$(devbox global shellenv --init-hook)"
+
+eval "$(starship init bash)"
