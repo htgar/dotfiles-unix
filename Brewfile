@@ -1,4 +1,3 @@
-tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 brew "bat"
 brew "chezmoi"
