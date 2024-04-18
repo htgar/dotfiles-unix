@@ -9,8 +9,6 @@ end
 
 set -g fish_greeting
 set -gx EDITOR nvim
-set -gx ZELLIJ_AUTO_EXIT true
-set -gx ZELLIJ_AUTO_ATTACH true
 
 
 set -Ux FZF_DEFAULT_OPTS "\
@@ -20,6 +18,8 @@ set -Ux FZF_DEFAULT_OPTS "\
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    set ZELLIJ_AUTO_ATTACH true
+    set ZELLIJ_AUTO_EXIT true
     eval (zellij setup --generate-auto-start fish | string collect)
 end
 
