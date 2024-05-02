@@ -18,9 +18,9 @@ set -Ux FZF_DEFAULT_OPTS "\
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    # set ZELLIJ_AUTO_ATTACH true
-    # set ZELLIJ_AUTO_EXIT true
-    # eval (zellij setup --generate-auto-start fish | string collect)
+    set ZELLIJ_AUTO_ATTACH true
+    set ZELLIJ_AUTO_EXIT true
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 if test -n (uname -r | grep microsoft) 
