@@ -8,7 +8,7 @@ if test -d (brew --prefix)"/share/fish/vendor_completions.d"
 end
 
 set -g fish_greeting
-set -gx EDITOR hx
+set -gx EDITOR nvim
 
 
 set -Ux FZF_DEFAULT_OPTS "\
