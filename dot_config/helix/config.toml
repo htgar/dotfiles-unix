@@ -1,0 +1,5 @@
+theme = "catppuccin_mocha"
+
+[editor]
+true-color = true
+color-modes = true

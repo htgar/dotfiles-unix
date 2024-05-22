@@ -8,7 +8,7 @@ if test -d (brew --prefix)"/share/fish/vendor_completions.d"
 end
 
 set -g fish_greeting
-set -gx EDITOR nvim
+set -gx EDITOR hx
 
 
 set -Ux FZF_DEFAULT_OPTS "\
@@ -23,7 +23,7 @@ if status is-interactive
     eval (zellij setup --generate-auto-start fish | string collect)
 end
 
-if test -n (uname -r | grep microsoft) 
+if test -n (uname -r | grep microsoft)
     set -gx BROWSER wsl-open
     alias xdg-open="wsl-open"
 end
