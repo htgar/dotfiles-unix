@@ -16,14 +16,14 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-function yy
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
+#function yy
+#	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+#	yazi $argv --cwd-file="$tmp"
+#	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+#		cd -- "$cwd"
+#	end
+#	rm -f -- "$tmp"
+#end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -33,6 +33,6 @@ if status is-interactive
 end
 
 if test -n (uname -r | grep microsoft)
-    set -gx BROWSER wsl-open
-    alias xdg-open="wsl-open"
+    set -gx BROWSER explorer.exe
+    alias xdg-open="explorer.exe"
 end
