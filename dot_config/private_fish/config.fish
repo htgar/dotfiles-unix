@@ -9,18 +9,27 @@ end
 
 set -g fish_greeting
 set -gx EDITOR nvim
-
+zoxide init fish | source
 
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    set ZELLIJ_AUTO_ATTACH true
-    set ZELLIJ_AUTO_EXIT true
-    eval (zellij setup --generate-auto-start fish | string collect)
+    #set ZELLIJ_AUTO_ATTACH true
+    #set ZELLIJ_AUTO_EXIT true
+    #eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 if test -n (uname -r | grep microsoft)
