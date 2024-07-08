@@ -25,11 +25,20 @@ function yy
 	rm -f -- "$tmp"
 end
 
-if status is-interactive
+#if status is-interactive
     # Commands to run in interactive sessions can go here
     #set ZELLIJ_AUTO_ATTACH true
     #set ZELLIJ_AUTO_EXIT true
     #eval (zellij setup --generate-auto-start fish | string collect)
+#end
+
+if status is-interactive
+    # don't nest inside another tmux
+and not set -q TMUX
+    # Adapted from https://unix.stackexchange.com/a/176885/347104
+    # Create session 'main' or attach to 'main' if already exists.
+    tmux new-session -A -s main
+    #sesh connect $(sesh list | fzf)
 end
 
 if test -n (uname -r | grep microsoft)
