@@ -10,20 +10,12 @@ end
 set -g fish_greeting
 set -gx EDITOR nvim
 zoxide init fish | source
+fzf --fish | FZF_ALT_C_COMMAND= source
 
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-function yy
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
 
 #if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -41,6 +33,7 @@ and not set -q TMUX
     #sesh connect $(sesh list | fzf)
 end
 
+# WSL
 if test -n (uname -r | grep microsoft)
     set -gx BROWSER explorer.exe
     alias xdg-open="explorer.exe"
