@@ -11,6 +11,7 @@ set -g fish_greeting
 set -gx EDITOR nvim
 zoxide init fish | source
 fzf --fish | source
+direnv hook fish | source
 
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
