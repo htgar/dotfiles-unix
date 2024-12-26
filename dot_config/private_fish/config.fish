@@ -9,9 +9,10 @@ end
 
 set -g fish_greeting
 set -gx EDITOR nvim
-zoxide init fish | source
-fzf --fish | source
-direnv hook fish | source
+if which zoxide > /dev/null; zoxide init fish | source; end
+if which fzf > /dev/null; fzf --fish | source; end
+if which direnv > /dev/null; direnv hook fish | source; end
+
 
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
