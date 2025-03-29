@@ -1,0 +1,7 @@
+brew "fd"
+brew "fish"
+brew "neovim"
+brew "python@3.13"
+brew "ripgrep"
+brew "stow"
+brew "zellij"
