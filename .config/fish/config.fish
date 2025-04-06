@@ -10,7 +10,7 @@ end
 set -g fish_greeting
 set -gx EDITOR nvim
 if which zoxide > /dev/null; zoxide init fish | source; end
-# if which fzf > /dev/null; fzf --fish | source; end
+if which fzf > /dev/null; fzf --fish | source; end
 if which direnv > /dev/null; direnv hook fish | source; end
 
 set -Ux FZF_DEFAULT_OPTS "\
